@@ -1,0 +1,24 @@
+
+
+<table class="profile" summary="Profile information" >
+  <%= flash[:success]= " Your Profile" %>
+  <tr>
+    <td class="sidebar round">
+      <h1>
+        <%= image_tag @profile.avatar.url(:thumb) %>
+      </h1></td>
+    <td class="sidebar round">
+      <h1>
+        <%= @profile.Full_name %>  </h1>
+      <%= link_to 'Edit Profile', edit_profile_path(@profile) %>
+
+    </td>
+  </tr>
+
+
+
+
+
+
+
+</table>

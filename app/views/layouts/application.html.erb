@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Point:: <%= @title %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <div id="container">
+
+        <div id="header">
+            <!-- header start here -->
+            <h1><span class="blue-text"></span>Contact Point</h1>
+            <!-- logo -->
+            <%#<%= image_tag("logo.png", :alt => "Sanman", :class => "round") %>
+            <%#<img src= "/home/tanmay/Desktop/IMG_2914.JPG" alt="Contact Point">%>
+      ‌      <!-- logo end -->
+        </div>
+      ‌
+        <div id="menu" class="menuitem">
+            <ul>
+              <li><a><%= link_to "Home",'/home' %></a></li>
+              <li><a><%= link_to "About Us",'/aboutus' %></a></li>
+              <li><a><%= link_to "Design Services",'#' %></a></li>
+              <li><a><%= link_to "Electronic Manufacturing",'/electronic_manufacturing' %></a></li>
+              <li><a><%= link_to "Products",'/products' %></a></li>
+              <li><a><%= link_to "RFQ",'/rfq' %></a></li>
+              <li><a><%= link_to "Careers",'/careers' %></a></li>
+              <li><a><%= link_to "Contact Us",'/contact_us' %></a></li>
+
+            </ul>
+        </div><!--menu end-->‌
+        <aside>
+        <div id="leftmenu">
+            <h3>Links</h3>
+                <ul>
+                    <li><a href="browse.html">Porduct Details</a></li>
+                    <li><a href="browse.html">Data Sheet</a></li>
+                    <% if user_signed_in? %>
+                      <li><%= link_to "Profile", '/profiles/edit' %></li>
+                      <li><%= link_to "Seetings",edit_user_registration_path %></li>
+                      <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+                    <% else %>
+                      <li><%= link_to "Sign in",'/users/sign_in' %></li>
+                      <li ><%= link_to "Join Us", '/users/sign_up' %></li>
+
+                    <% end %>
+
+                    <%#<% if current_user.admin? && signed_in? %>
+                      <%#<li><a><%= link_to "All Users", '/users' %><%#</a></li>
+                    <% end %>
+                </ul>
+        </div>
+        </aside>
+        <!--leftmenu end-->
+
+        <div id="content" section class="container">
+            <%= yield %>
+            <!--CONTENT HERE-->
+            </section>
+        </div><!--content end-->
+
+        <%#<section class="container">
+            <%= yield %>
+       <%# </section>%>
+
+    </div>
+</body>
+</html>

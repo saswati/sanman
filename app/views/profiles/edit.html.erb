@@ -1,0 +1,16 @@
+<h1> Edit Profile</h1>
+
+<%= form_for @profile, :html => { :multipart => true } do |f| %>
+    <%= f.text_field :Full_name %>
+    <%= f.text_field :permanent_address %>
+    <%= f.text_field :business_address %>
+    <%= f.text_field :company_address %>
+    <%= f.text_field :contact_number %>
+    <%= f.file_field :avatar %>
+
+    <div class="actions">
+      <%= f.submit "Update" %>
+    </div>
+    <%= link_to 'Show', profile_path(@profile) %>
+
+<% end %>
